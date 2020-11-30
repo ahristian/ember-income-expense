@@ -1,0 +1,30 @@
+<BsNavbar
+ @type="dark"
+ @backgroundColor="dark"
+ as |navbar|>
+  <div class="navbar-header">
+    {{navbar.toggle}}
+    {{#link-to "index" class="navbar-brand pl-3" }}
+
+      Albuquerque Car Sale{{/link-to}}
+  </div>
+  <navbar.content class="navbar-right">
+    <navbar.nav as |nav|>
+<!--      <nav.item>
+        <nav.link-to @route="post-car">Sell My Car</nav.link-to>
+      </nav.item>
+      <nav.item>
+        <nav.link-to @route="vehicles">Cars</nav.link-to>
+      </nav.item>-->
+      <nav.item>
+        <nav.link-to @route="budget">Find your Budget</nav.link-to>
+      </nav.item>
+      <!--<nav.item>
+        <nav.link-to @route="about">About</nav.link-to>
+      </nav.item>
+      <nav.item>
+        <nav.link-to @route="contact">Contact Us</nav.link-to>
+      </nav.item>-->
+    </navbar.nav>
+  </navbar.content>
+</BsNavbar>

@@ -1,0 +1,57 @@
+<div class="contact">
+  <div class="container-fluid other-pages-background">
+    <div class="row">
+      <div class="col-md-5 text-center">
+        <h2>Budget Calculator </h2>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <table class="table-secondary">
+          <thead class="font-weight-bold text-center">
+          <td>Description</td>
+          <td>Date</td>
+          <td>Amount</td>
+          <td>Status</td>
+          <td>Percentage</td>
+          </thead>
+          <tbody>
+          {{#each model as | lineItem|}}
+            <tr class="{{if lineItem.isExpense '' 'badge-info'}}">
+              <td>{{lineItem.description}}</td>
+              <td>{{lineItem.date}}</td>
+              <td>{{lineItem.amount}}</td>
+              <td>{{lineItem.isExpense}}</td>
+              <td>{{percentage lineItem.amount totalAmount}}</td>
+            <td><button {{action 'deleteLineItem' lineItem}} type="button" class="btn btn-danger">Delete</button> </td>
+            </tr>
+          {{/each}}
+          </tbody>
+          <tfoot>
+          <tr>
+            <td>
+              {{input type="text" value=newDescription placeholder="Description"}}
+            </td>
+            <td>
+              {{input type="date" value=newDate placeholder="Date"}}
+            </td>
+            <td>
+              {{input type="number" value=newAmount placeholder="amount"}}
+            </td>
+            <label>
+              {{input type="checkbox" checked=newIsExpense }}Is a Expense?
+            </label>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button {{action 'addNewLineItem'}} class="btn btn-secondary">Add New Item</button>
+            </td>
+          </tr>
+          </tfoot>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

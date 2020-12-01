@@ -26,6 +26,7 @@ module.exports = function (environment) {
       appId: "1:585738605303:web:fec3e05b646c2ff38bb9f2",
       measurementId: "G-D5KDCRRTDT"
     },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -53,6 +54,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
+
     // here you can enable a production-specific feature
   }
 

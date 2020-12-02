@@ -1,3 +1,26 @@
 <NavBar/>
-{{outlet}}
+<div class="contact">
+  <div class="container-fluid other-pages-background">
+    <div class="row">
+      <div class="col-md-5 text-center">
+        <h2>Budget Calculator </h2>
+      </div>
+    </div>
+  </div>
+  {{#if session.isAuthenticated}}
+    Logged in as {{session.currentUser.displayName}}
+    <button {{action "signOut"}}>Sign out</button>
+    {{outlet}}
+  {{else}}
+    <form>
+      <div class="form-control">
+        {{input type="text" value=userEmail placeholder="Email"}}
+      </div>
+      <div class="form-control">
+        {{input type="password" value=userPassword placeholder="Password"}}
+      </div>
+      <button class="btn btn-info" {{action "signIn"}}>Sign in</button>
+    </form>
+  {{/if}}
+</div>
 <Footer/>

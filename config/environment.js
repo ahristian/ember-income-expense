@@ -7,7 +7,6 @@ module.exports = function (environment) {
     rootURL: '/',
     locationType: 'auto',
     torii: {
-      // a 'session' property will be injected on routes and controllers
       sessionServiceName: 'session',
     },
     EmberENV: {

@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <table class="table table-striped">
+    <thead class="font-weight-bold text-center">
+    <td>Description</td>
+    <td>Category</td>
+    <td>Date</td>
+    <td>Amount</td>
+    <td>Status</td>
+    <td>Percentage</td>
+    </thead>
+    <tbody>
+    {{#each model as | lineItem|}}
+      <tr class="{{unless lineItem.isExpense 'badge-info'}}">
+        {{#if lineItem.isNew}}
+          <td>
+            {{input type="text" value=lineItem.description placeholder="Description"}}
+            {{#if (v-get lineItem 'description' 'isInvalid')}}
+              <div class="text-danger">
+                {{v-get lineItem 'description' 'message'}}
+              </div>
+            {{/if}}
+          </td>
+          <td>
+            {{#power-select selected=lineItem.category options=categories
+                            onChange=(action "changeCategory" lineItem) as |category|}}
+              {{category.name}}
+            {{/power-select}}
+          </td>
+          <td>
+            {{input type="date" value=lineItem.date  placeholder="Date"}}
+          </td>
+          <td>
+            {{input type="number" value=lineItem.amount placeholder="Amount"}}
+            {{#if (v-get lineItem 'amount' 'isInvalid')}}
+              <div class="text-danger">
+                {{v-get lineItem 'amount' 'message'}}
+              </div>
+            {{/if}}
+          </td>
+          <label>
+            {{input type="checkbox" checked=lineItem.isExpense }}Is a Expense?
+          </label>
+          <button {{action 'saveLineItem' lineItem}} type="button" class="btn btn-primary">Save</button>
+        {{else}}
+          <td>{{lineItem.description}}</td>
+          <td>{{lineItem.category.name}}</td>
+          <td>{{lineItem.date}}</td>
+          <td>{{lineItem.amount}}</td>
+          <td>{{lineItem.isExpense}}</td>
+          <td>{{percentage lineItem.amount totalAmount}}</td>
+          <td>
+            <button {{action 'deleteLineItem' lineItem}} type="button" class="btn btn-danger">Delete</button>
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+    </tbody>
+    <tfoot>
+    <td colspan="8">
+      <button {{action 'addNewLineItem'}} class="btn btn-secondary">Add New Item</button>
+    </td>
+    </tfoot>
+  </table>
+</div>

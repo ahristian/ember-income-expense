@@ -6,6 +6,10 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    torii: {
+      // a 'session' property will be injected on routes and controllers
+      sessionServiceName: 'session',
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -17,16 +21,15 @@ module.exports = function (environment) {
       }
     },
     firebase: {
-      apiKey: "AIzaSyCqo5useCn1_jr_nYsP17Al_G6rpbVSTUE",
-      authDomain: "car-sale-253f8.firebaseapp.com",
-      databaseURL: "https://car-sale-253f8.firebaseio.com",
-      projectId: "car-sale-253f8",
-      storageBucket: "car-sale-253f8.appspot.com",
-      messagingSenderId: "585738605303",
-      appId: "1:585738605303:web:fec3e05b646c2ff38bb9f2",
-      measurementId: "G-D5KDCRRTDT"
+      apiKey: "AIzaSyBwThZCCa-nsTbX0YrAZUic3nSBXLuRMrw",
+      authDomain: "car-data-e6872.firebaseapp.com",
+      databaseURL: "https://car-data-e6872.firebaseio.com",
+      projectId: "car-data-e6872",
+      storageBucket: "car-data-e6872.appspot.com",
+      messagingSenderId: "802110786936",
+      appId: "1:802110786936:web:2cb98b60abeab82c11cc8d",
+      measurementId: "G-TVY7Q21R1B"
     },
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

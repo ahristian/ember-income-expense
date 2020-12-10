@@ -1,3 +1,17 @@
 <NavBar/>
+{{#if session.isAuthenticated}}
+  Logged in as {{session.currentUser.displayName}}
+  <button {{action "logout"}}>Sign out</button>
+{{else}}
+  <form>
+    <div class="form-control">
+    {{input type="text" value=userEmail placeholder="Email"}}
+    </div>
+    <div class="form-control">
+      {{input type="password" value=userPassword placeholder="Password"}}
+    </div>
+    <button class="btn btn-info" {{action "login"}}>Sign in</button>
+  </form>
+  {{/if}}
 {{outlet}}
 <Footer/>

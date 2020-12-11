@@ -1,13 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  session: Ember.inject.service(),
+    session: Ember.inject.service(),
   beforeModel() {
   return this.get('session').fetch().catch(function() {});
 },
-
+model () {
+      return this.get('store').findAll('line-item');
+},
 actions: {
-  signIn() {
+  login() {
     let email = this.controllerFor('application').get('userEmail'),
       password = this.controllerFor('application').get('userPassword');
     this.get('session').open('firebase',
@@ -19,7 +21,7 @@ actions: {
       console.log(data.currentUser);
     });
   },
-  signOut() {
+  logout() {
     this.get('session').close();
   }
 }

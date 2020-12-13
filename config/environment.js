@@ -7,14 +7,7 @@ module.exports = function (environment) {
     rootURL: '/',
     locationType: 'auto',
     torii: {
-      // a 'session' property will be injected on routes and controllers
       sessionServiceName: 'session',
-   /*   providers: {
-        'facebook-oauth2': {
-          apiKey:      'facebook-app-id',
-          redirectUri: '/my-custom-landing-uri' // default is /torii/redirect.html
-        }
-      }*/
     },
     EmberENV: {
       FEATURES: {
@@ -36,7 +29,6 @@ module.exports = function (environment) {
       appId: "1:585738605303:web:fec3e05b646c2ff38bb9f2",
       measurementId: "G-D5KDCRRTDT"
     },
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

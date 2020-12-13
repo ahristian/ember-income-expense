@@ -2,7 +2,6 @@
 {{#if session.isAuthenticated}}
   Logged in as {{session.currentUser.displayName}}
   <button {{action "logout"}}>Sign out</button>
-  {{outlet}}
 {{else}}
   <form>
     <div class="form-control">
@@ -14,4 +13,5 @@
     <button class="btn btn-info" {{action "login"}}>Sign in</button>
   </form>
   {{/if}}
+{{outlet}}
 <Footer/>

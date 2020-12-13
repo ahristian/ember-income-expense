@@ -22,17 +22,8 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    changeCategory (lineItem, category){
-      lineItem.set('category', category);
-    },
-    deleteLineItem(lineItem){
-      lineItem.destroyRecord();
-    },
     addNewLineItem () {
       this.get('store').createRecord('line-item');
-    },
-    saveLineItem(lineItem) {
-      lineItem.save();
     }
   }
 });

@@ -5,9 +5,6 @@ export default Ember.Route.extend({
   beforeModel() {
   return this.get('session').fetch().catch(function() {});
 },
-model () {
-      return this.get('store').findAll('line-item');
-},
 actions: {
   login() {
     let email = this.controllerFor('application').get('userEmail'),

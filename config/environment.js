@@ -6,6 +6,16 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    torii: {
+      // a 'session' property will be injected on routes and controllers
+      sessionServiceName: 'session',
+   /*   providers: {
+        'facebook-oauth2': {
+          apiKey:      'facebook-app-id',
+          redirectUri: '/my-custom-landing-uri' // default is /torii/redirect.html
+        }
+      }*/
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

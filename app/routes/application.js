@@ -17,12 +17,12 @@ actions: {
         provider: 'password',
         email: email,
         password: password
-      }).then(function(data) {
-      console.log(data.currentUser);
+      }).then(()=> {
+      this.transitionTo('index');
     });
   },
   logout() {
-    this.get('session').close();
+    this.property('session').close();
   }
 }
 });

@@ -27,7 +27,7 @@
   <label>
     {{input type="checkbox" checked=@model.isExpense }}Is a Expense?
   </label>
-  <button {{action 'saveLineItem' model}} type="button" class="btn btn-primary">Save</button>
+  <button {{action 'saveModel'}} type="button" class="btn btn-primary">Save</button>
 {{else}}
   <td>{{@model.description}}</td>
   <td>{{@model.category.name}}</td>
@@ -36,7 +36,7 @@
   <td>{{@model.isExpense}}</td>
   <td>{{percentage @model.amount @totalAmount}}</td>
   <td>
-    <button {{action 'deleteLineItem' model}} type="button" class="btn btn-danger">Delete</button>
+    <button {{action 'destroyRecord'}} type="button" class="btn btn-danger">Delete</button>
   </td>
 {{/if}}
 {{yield}}

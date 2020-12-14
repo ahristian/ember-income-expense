@@ -11,11 +11,11 @@ export default Ember.Component.extend({
     changeCategory(model, category) {
       model.set('category', category);
     },
-    deleteLineItem(model){
-      model.destroyRecord();
+    saveModel(){
+      this.get('saveRecord')(this.get('model'));
     },
-    saveLineItem(model) {
-      model.save();
+    destroyRecord(){
+      this.get('destroyRecord')(this.get('model'));
     }
   }
 });

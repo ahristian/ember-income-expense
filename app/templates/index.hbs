@@ -1,20 +1,16 @@
 <div class="container mt-5">
   <table class="table table-striped">
     <thead class="font-weight-bold  text-center">
-    <td>{{#link-to 'index' (query-params sort='description')}}Description{{/link-to}}</td>
-    <td>{{#link-to 'index' (query-params sort='category')}}Category{{/link-to}}</td>
-    <td>{{#link-to 'index' (query-params sort='date')}}Date{{/link-to}}
-      </td>
-    <td>{{#link-to 'index' (query-params sort='amount')}}Amount{{/link-to}}
-      </td>
-    <td>{{#link-to 'index' (query-params sort='status')}}Status{{/link-to}}
-      </td>
-    <td>{{#link-to 'index' (query-params sort='percentage')}}Percentage{{/link-to}}
-      </td>
+    <td><LinkTo @route="index" @query={{hash sort='description'}}>Description</LinkTo></td>
+    <td><LinkTo @route="index" @query={{hash sort='category'}}>Category</LinkTo></td>
+    <td><LinkTo @route="index" @query={{hash sort='date'}}>Date</LinkTo></td>
+    <td><LinkTo @route="index" @query={{hash sort='amount'}}>Amount</LinkTo></td>
+    <td><LinkTo @route="index" @query={{hash sort='status'}}>Status</LinkTo></td>
+    <td><LinkTo @route="index" @query={{hash sort='percentage'}}>Percentage</LinkTo></td>
     </thead>
     <tbody>
     {{#each sortedLineItems as |lineItem|}}
-      {{line-item-row model=lineItem totalAmount=totalAmount categories=categories}}
+      {{line-item-row model=lineItem totalAmount=totalAmount categories=categories destroyRecord=(action 'deleteLineItem') saveRecord=(action 'saveLineItem')}}
     {{/each}}
     </tbody>
     <tfoot>

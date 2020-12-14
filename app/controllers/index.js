@@ -9,7 +9,9 @@ export default Ember.Controller.extend({
     let sort = this.get('sort');
     if(sort){
       return this.get('model').sortBy(sort);
+
     }
+
     return this.get('model');
   }),
   totalAmount: Ember.computed('model.[]', function () {
@@ -24,6 +26,12 @@ export default Ember.Controller.extend({
   actions: {
     addNewLineItem () {
       this.get('store').createRecord('line-item');
+    },
+    saveLineItem(model) {
+      model.save();
+    },
+    deleteLineItem(model){
+      model.destroyRecord();
     }
   }
 });
